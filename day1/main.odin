@@ -6,7 +6,6 @@ import conv "core:strconv"
 parse_line :: proc(input: string) -> (turns: int) {
     assert(len(input) >= 2, "input guaranteed to have turn direction and amount")
     dir : int
-
     switch input[0] {
         case 'L': 
             dir = -1
@@ -15,7 +14,6 @@ parse_line :: proc(input: string) -> (turns: int) {
         case:
             assert(false, "first string element should be L/R")
     }
-
     turns = (conv.atoi(input[1:]) * dir)
     return
 }
@@ -28,7 +26,7 @@ mod_100_arithmetic :: proc(x: int) -> int {
     return wrapping_arithmetic(x, 100)
 }
 
-solve1 :: proc(input: ^string) -> (silver: int, gold: int) {
+solve :: proc(input: ^string) -> (silver: int, gold: int) {
     state := 50
 
     for line in s.split_lines_iterator(input) {
@@ -50,7 +48,7 @@ solve1 :: proc(input: ^string) -> (silver: int, gold: int) {
 
 main :: proc() { 
     trimmed := s.trim_space(input)
-    result_silver, result_gold := solve1(&trimmed)
+    result_silver, result_gold := solve(&trimmed)
     fmt.printfln("Silver result %d, Gold result %d", result_silver, result_gold)
 }
 
