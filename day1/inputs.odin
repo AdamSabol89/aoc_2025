@@ -1,6 +1,6 @@
-package day1 
+package day1
 
-test_input :string: `
+test_input: string : `
 L68
 L30
 R48
@@ -12,4 +12,6 @@ L99
 R14
 L82
 `
-input :string: ``
+
+
+input: string : ``
